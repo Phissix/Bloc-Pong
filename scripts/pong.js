@@ -111,6 +111,7 @@
 	// game asset updates
 	var update = function() {
 		player.update();
+		computer.update(ball);
 		ball.update(player.paddle, computer.paddle);
 	};
 
@@ -129,6 +130,27 @@
 				this.paddle.move(0, 0);
 			}
 		}
+	};
+
+	// AI
+	Computer.prototype.update = function(ball) {
+		var _this = this;
+
+		// set AI speed and call movement
+		function paddleActivation(paddle) {
+			var y_pos = ball.y + .01 * canvas.width;
+			var speed = paddle === _this.paddle ? .010 * canvas.height : .04 * canvas.height;
+			// take the difference between the center of the paddle and the ball
+			var diff = -(paddle.y + paddle.height / 2 - y_pos);
+			if(diff < 0 && diff < -speed) { //  near max speed up
+				diff = - 0.87 * speed;
+			} else if(diff > 0 && diff > speed) { //  near max speed down
+				diff =  0.87 * speed;
+			}
+			paddle.move(0, diff);
+		}
+
+		paddleActivation(_this.paddle);
 	};
 
 
