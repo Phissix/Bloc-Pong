@@ -174,6 +174,22 @@
 		  this.x = canvas.width/2 - this.radius;
 		  this.y = canvas.height/2 - this.radius;
 		}
+
+		if(top_x > (canvas.width / 2)) {
+			if(top_x < (paddle1.x + paddle1.width) && bottom_x > paddle1.x && top_y < (paddle1.y + paddle1.height) && bottom_y > (paddle1.y)) {
+				// hitting player paddle right of screen
+				this.x_speed = -this.radius;
+				this.y_speed = (paddle1.y_speed/2);
+				this.x += this.x_speed;
+			}
+		} else {
+			if(bottom_x > (paddle2.x + paddle2.width) && top_x < (paddle2.x + paddle2.width) && top_y < (paddle2.y + paddle2.height) && bottom_y > (paddle2.y)) {
+				// hitting computer paddle left of screen
+				this.x_speed = this.radius;
+				this.y_speed = (paddle2.y_speed/2);
+				this.x += this.x_speed;
+			}
+		}
 	};
 
 // END - Game Asset Update Mechanisms
