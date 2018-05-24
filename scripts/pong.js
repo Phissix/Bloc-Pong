@@ -253,7 +253,7 @@
 		if(this.x < 0 || this. x > width()) { // point was scored
 		  if(this.x < 0) {
 			  // player scores
-			  this.score2 += 2;
+			  this.score2 += 1;
 		  } else if(this.x > canvas.width) {
 			  //computer scores
 			  this.score1 += 1;
