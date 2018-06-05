@@ -76,12 +76,3 @@ canvas {
 	font-size: .9em;
 	opacity: .6;
 }
-
-#gameover {
-	height: 100%;
-	width: 100%;
-	display: flex;
-	position: fixed;
-	align-items: center;
-	justify-content: center;
-}
