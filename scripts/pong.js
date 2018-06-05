@@ -254,9 +254,23 @@
 		  if(this.x < 0) {
 			  // player scores
 			  this.score2 += 1;
+				if (this.score2 == 11) {
+		      document.getElementById("gameover").innerHTML = "YOU WON! CLICK HERE TO PLAY AGAIN";
+		      document.getElementById("gameover").style.visibility = "visible";
+		      document.getElementById("gameover").style.cursor = "pointer";
+		      this.score2 = 0;
+		      this.score1 = 0;
+		    }
 		  } else if(this.x > canvas.width) {
 			  //computer scores
 			  this.score1 += 1;
+				if (this.score1 == 11) {
+		      document.getElementById("gameover").innerHTML = "YOU LOST! CLICK HERE TO PLAY AGAIN";
+		      document.getElementById("gameover").style.visibility = "visible";
+		      document.getElementById("gameover").style.cursor = "pointer";
+					this.score2 = 0;
+		      this.score1 = 0;
+		    }
 		  }
 		  // randomize starting ball direction
 		  this.x_speed = Math.random() >= .5 ? .5*this.radius : -.5*this.radius;
